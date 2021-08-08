@@ -4,10 +4,10 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   belongs_to :area
-  belongs_to :class
+  belongs_to :classone
   belongs_to :storage
   belongs_to :shipping_charges
-  belongs_to :day_to_ship
+  belongs_to :days_to_ship
   belongs_to :delivery
   belongs_to :shipping_area
 
@@ -15,14 +15,15 @@ class Item < ApplicationRecord
     validates :title,
               :text,
               :image,
+              :weight,
               :tighten,
               :process,
               :process_timing
 
     with_options numericality: { other_than: 1, message: "can't be blank" } do
-      validates :ares_id,
-                :class_id,
-                :storage,
+      validates :area_id,
+                :classone_id,
+                :storage_id,
                 :shipping_charges_id,
                 :days_to_ship_id,
                 :delivery_id,
@@ -31,7 +32,7 @@ class Item < ApplicationRecord
 
     with_options numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
                                  message: 'is out of setting range' } do
-      validates :price, :weight, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters' }
+      validates :price, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters' }
     end
 
   end

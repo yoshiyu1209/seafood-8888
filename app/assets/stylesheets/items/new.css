@@ -103,6 +103,7 @@
   border: 1px solid #ccc;
   font-size: 16px;
   resize: none;
+  margin: 1vh 0;
 }
 
 .items-explain {
