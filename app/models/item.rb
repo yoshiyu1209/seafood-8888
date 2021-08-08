@@ -35,6 +35,5 @@ class Item < ApplicationRecord
                                  message: 'is out of setting range' } do
       validates :price, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters' }
     end
-
   end
 end
