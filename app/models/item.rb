@@ -16,6 +16,7 @@ class Item < ApplicationRecord
               :text,
               :image,
               :weight,
+              :catch_day,
               :tighten,
               :process,
               :process_timing
