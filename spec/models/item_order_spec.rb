@@ -32,11 +32,11 @@ RSpec.describe ItemOrder, type: :model do
     end
 
     context '商品購入できないとき' do
-      # it 'tokenが空だと購入できない' do
-      #   @item_order.token = ''
-      #   @item_order.valid?
-      #   expect(@item_order.errors.full_messages).to include("Token can't be blank")
-      # end
+      it 'tokenが空だと購入できない' do
+        @item_order.token = ''
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include("Token can't be blank")
+      end
       it 'postal_codeが空だと購入できない' do
         @item_order.postal_code = ''
         @item_order.valid?
