@@ -4,7 +4,7 @@ FactoryBot.define do
     text                { 'テストです' }
     weight              { '1000g' }
     area_id             { 2 }
-    catch_day           { 2 }
+    catch_day           { '2021-08-09' }
     classone_id         { 2 }
     tighten             { 'テストです' }
     process             { 'テストです' }
