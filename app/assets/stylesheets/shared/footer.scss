@@ -3,10 +3,9 @@
 
 .ad-footer-contents {
   width: 100vw;
-  background-image: image-url('furima-footer.png');
+  background: image-url('kani.jpg') no-repeat center;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,6 +60,7 @@
 .logo-white {
   width: 20vh;
   vertical-align: bottom;
+  size: 200x80;
 }
 
 .footer>p {
