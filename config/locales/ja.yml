@@ -1,0 +1,39 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        last_name: 姓
+        first_name: 名
+        last_name_kana: 姓カナ
+        first_name_kana: 名カナ
+        birthday: 誕生日
+      item:
+        image: 画像画像
+        title: 商品名
+        text: 商品の説明
+        weight: 重量
+        area_id: 釣り場
+        catch_day: 釣り上げた日（水揚げ日）
+        classone_id: 分類
+        tighten: 締め方
+        process: 処理方法
+        process_timing: 締め処理を行なったタイミング
+        storage_id: 保管方法
+        shipping_charges_id: 配送料の負担
+        days_to_ship_id: 発送までの日数
+        delivery_id: 発送方法
+        shipping_area_id: 発送元の地域
+        price: 価格
+
+  activemodel:
+    attributes:
+      item_order:
+        token: クレジットカード情報
+        postal_code: 郵便番号
+        shipping_area_id: 都道府県
+        municipality: 市区町村
+        address: 番地
+        building_name: 建物名
+        phone_number: 電話番号
+        

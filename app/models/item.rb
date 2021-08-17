@@ -22,7 +22,7 @@ class Item < ApplicationRecord
               :process,
               :process_timing
 
-    with_options numericality: { other_than: 1, message: "can't be blank" } do
+    with_options numericality: { other_than: 1, message: 'を入力してください' } do
       validates :area_id,
                 :classone_id,
                 :storage_id,
@@ -33,8 +33,8 @@ class Item < ApplicationRecord
     end
 
     with_options numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
-                                 message: 'is out of setting range' } do
-      validates :price, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters' }
+                                 message: 'が範囲外です' } do
+      validates :price, format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
     end
   end
 end

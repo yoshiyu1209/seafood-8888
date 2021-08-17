@@ -35,67 +35,67 @@ RSpec.describe ItemOrder, type: :model do
       it 'tokenが空だと購入できない' do
         @item_order.token = ''
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Token can't be blank")
+        expect(@item_order.errors.full_messages).to include('クレジットカード情報を入力してください')
       end
       it 'postal_codeが空だと購入できない' do
         @item_order.postal_code = ''
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Postal code can't be blank")
+        expect(@item_order.errors.full_messages).to include('郵便番号を入力してください', '郵便番号は半角で入力してください (例 123-4567)')
       end
       it 'postal_codeが半角英数字混合では購入できない' do
         @item_order.postal_code = 'abc8888'
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include('Postal code is invalid. Enter it as follows (e.g. 123-4567)')
+        expect(@item_order.errors.full_messages).to include('郵便番号は半角で入力してください (例 123-4567)')
       end
       it 'postal_codeにハイフンがないと購入できない' do
         @item_order.postal_code = '1_2345_67'
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include('Postal code is invalid. Enter it as follows (e.g. 123-4567)')
+        expect(@item_order.errors.full_messages).to include('郵便番号は半角で入力してください (例 123-4567)')
       end
       it 'shipping_area_idが空では購入できない' do
         @item_order.shipping_area_id = ''
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Shipping area can't be blank")
+        expect(@item_order.errors.full_messages).to include('都道府県を入力してください', '都道府県を入力してください')
       end
       it 'shipping_area_idが1では購入できない' do
         @item_order.shipping_area_id = 1
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Shipping area can't be blank")
+        expect(@item_order.errors.full_messages).to include('都道府県を入力してください')
       end
       it 'municipalityが空では購入できない' do
         @item_order.municipality = ''
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Municipality can't be blank")
+        expect(@item_order.errors.full_messages).to include('市区町村を入力してください')
       end
       it 'addressが空では購入できない' do
         @item_order.address = ''
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Address can't be blank")
+        expect(@item_order.errors.full_messages).to include('番地を入力してください')
       end
       it 'phone_numberが空では購入できない' do
         @item_order.phone_number = ''
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Phone number can't be blank")
+        expect(@item_order.errors.full_messages).to include('電話番号を入力してください', '電話番号が不正確です', '電話番号は半角数値で入力してください')
       end
       it 'phone_numberにハイフンがあると購入できない' do
         @item_order.phone_number = '080-8888-8888'
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include('Phone number is invalid. Input only number')
+        expect(@item_order.errors.full_messages).to include('電話番号が不正確です', '電話番号は半角数値で入力してください')
       end
       it 'phone_numberは半角数値でないと購入できない' do
         @item_order.phone_number = 'aaa000０'
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include('Phone number is invalid. Input only number')
+        expect(@item_order.errors.full_messages).to include('電話番号が不正確です', '電話番号は半角数値で入力してください')
       end
       it 'phone_numberが9桁では購入できない' do
         @item_order.phone_number = '080888888'
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include('Phone number is too short')
+        expect(@item_order.errors.full_messages).to include('電話番号が不正確です')
       end
       it 'phone_numberが12桁では購入できない' do
         @item_order.phone_number = '080888888888'
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include('Phone number is too short')
+        expect(@item_order.errors.full_messages).to include('電話番号が不正確です')
       end
     end
   end
