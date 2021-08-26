@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
     if @item_order.valid?
       pay_item
       @item_order.save
+      flash[:notice] = '購入が完了しました。'
       redirect_to root_path(@item)
     else
       render :index

@@ -1,13 +1,22 @@
 <%= render "shared/header" %>
 <div class='main'>
 
-  <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
+  <%#= render partial: "shared/flash" %>
+
+  <main>
+    <div class="main">
+      <%= yield %>
+      <%= render partial: 'shared/flash_window' %>
+    </div>
+  </main>
+
+  <%# 画面上部の「魚介類専門ネット市場」帯部分 %>
   <div class='title-contents'>
     <h2 class='service-title'>
       誰でも簡単に売ったり買ったりを楽しめる
     </h2>
     <p class='service-title'>
-      魚介専門ネット市場
+      魚介類専門ネット市場
     </p>
     <p class='service-explain'>
       
@@ -17,9 +26,9 @@
       <%= link_to image_tag("google-play.png", class:"google-btn"), "#" %>
     </div>
   </div>
-  <%# /画面上部の「人生を変えるフリマアプリ」帯部分  %>
+  <%# /画面上部の「魚介類専門ネット市場」帯部分  %>
 
-  <%# FURIMAの特徴 %>
+  <%# こんなお悩みありませんか？ %>
   <div class='feature-contents'>
     <h2 class='title'>
       こんなお悩みありませんか？
@@ -68,9 +77,9 @@
       </li>
     </ul>
   </div>
-  <%# /FURIMAの特徴 %>
+  <%# /こんなお悩みありませんか？ %>
 
-  <%# 画面中央の「会員数日本一位」帯部分 %>
+  <%# 画面中央の「Seafood Marché」帯部分 %>
   <div class='ad-contents'>
     <p class='ad-explain'>
       そんな要望を叶えるのが
@@ -82,9 +91,9 @@
       " Seafood Marché "
     </h2>
   </div>
-  <%# /画面中央の「会員数日本一位」帯部分 %>
+  <%# /画面中央の「Seafood Marché」帯部分 %>
 
-  <%# FURIMAが選ばれる3つの理由部分 %>
+  <%# 商品の出品・購入はかんたん３ステップ %>
   <div class='select-reason-contents'>
     <h2 class='title'>
       商品の出品・購入はかんたん３ステップ
@@ -164,7 +173,7 @@
       </li>
     </ul>
   </div>
-  <%# /FURIMAが選ばれる3つの理由部分 %>
+  <%# /商品の出品・購入はかんたん３ステップ %>
 
   
 
@@ -172,7 +181,7 @@
 
   <%# 商品一覧 %>
   <div class='item-contents'>
-    <h2 class='title'>ピックアップカテゴリー</h2>
+    <h2 class='title'>欲しい魚介類を探してみよう</h2>
     <div class="subtitle" >
       新規投稿商品
     </div>
@@ -189,7 +198,7 @@
         
               <% if item.order != nil %>
                 <div class='sold-out'>
-                  <span>Sold Out!!</span>
+                  <span>SOLD</span>
                 </div>
               <% end %>
             
@@ -215,7 +224,7 @@
         
         <li class='list'>
           <%= link_to '#' do %>
-          <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+          <%= image_tag "saba.jpg", class: "item-img" %>
           <div class='item-info'>
             <h3 class='item-name'>
               商品を出品してね！

@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      flash[:notice] = '商品が出品されました。'
       redirect_to root_path(@item)
     else
       render :new
@@ -28,6 +29,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
+      flash[:notice] = '商品情報が更新されました。'
       redirect_to item_path, method: :get
     else
       render :edit
@@ -36,6 +38,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
+    flash[:notice] = "出品情報を削除しました。"
     redirect_to root_path
   end
 

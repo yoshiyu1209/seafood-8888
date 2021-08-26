@@ -6,7 +6,8 @@ a {
   background: #f8f8f8;
 }
 
-/* 画面上部の「人生を変えるフリマアプリ」帯部分 */
+/* 画面上部の「魚介類専門ネット市場」帯部分 */
+
 .title-contents {
   width: 100vw;
   height: 500px;
@@ -22,17 +23,6 @@ a {
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
-
-// .title-contents::before {
-//   content: '';
-//   background-color: rgba(0, 0, 0, 0.2);
-//   position: absolute;
-//   top: 20.25vh;
-//   left: 0;
-//   width: 100%;
-//   height: 500px;
-//   display: block;
-// }
 
 .service-title {
   font-size: 6vh;
@@ -57,9 +47,11 @@ a {
   height: 9vh;
 }
 
-/* //画面上部の「人生を変えるフリマアプリ」帯部分 */
+/* //画面上部の「魚介類専門ネット市場」帯部分 */
 
-/* FURIMAの特徴 */
+
+/* こんなお悩みありませんか？部分 */
+
 .feature-contents {
   padding: 5vh 5vw;
 }
@@ -107,9 +99,11 @@ a {
   margin-top: 20px;
 }
 
-/* //FURIMAの特徴 */
+/* //こんなお悩みありませんか？部分 */
 
-/* 画面中央の「会員数日本一位」帯部分*/
+
+/* 画面中央の「Seafood Marché」帯部分*/
+
 .ad-contents {
   width: 100vw;
   background-image: image-url('ebi.jpg');
@@ -149,9 +143,11 @@ a {
   height: 9vh;
 }
 
-/* //画面中央の「会員数日本一位」帯部分 */
+/* //画面中央の「Seafood Marché」帯部分 */
 
-/* FURIMAが選ばれる3つの理由部分 */
+
+/* 商品の出品・購入はかんたん３ステップ部分 */
+
 .select-reason-contents {
   padding: 5vh 15vw;
 }
@@ -259,11 +255,7 @@ a {
   margin-top: 20px;
 }
 
-/* //FURIMAが選ばれる3つの理由部分 */
-
-
-
-
+/* //商品の出品・購入はかんたん３ステップ部分 */
 
 
 /* 商品一覧 */
@@ -311,20 +303,25 @@ a {
 .item-img {
   width: 33vh;
   height: 33vh;
+  object-fit: cover;
 }
 
 .sold-out {
   position: absolute;
   top: 40%;
+  right: 0;
   width: 100%;
   text-align: center;
   background-color: crimson;
-  transform: skewY(-10deg);
+  transform: skewY(0deg);
+  // transition-duration: .1s;
+  // transition-timing-function: ease-in-out;
+  // z-index: 1;
 }
 
 .sold-out>span {
   color: #FFF;
-  font-size: 45px;
+  font-size: 40px;
   font: bold;
 }
 
@@ -362,3 +359,75 @@ a {
 }
 
 /* //商品一覧 */
+
+main {
+  .main {
+    .flash-window  {
+      // 窓の形、色、文字の形、色
+      width: 300px;
+      height: 50px;
+      padding: 10px;
+      color: white;
+      background: blue;
+      border-radius: 10px;
+
+      // 中のp要素(メッセージ)を上下左右中央揃え
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      // 表示・非表示にかける時間
+      transition: 0.5s 0s ease;
+
+      // 窓の位置調整
+      position: fixed;
+      top: 40px;
+      left: 0;
+      right: 0;
+      margin: auto;
+
+      p {
+        color: white;
+
+        span {
+          margin-left: 1vw;
+          color: white;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      // 窓が非表示の時の状態
+      &.hidden {
+        opacity: 0;
+        top: -50px;
+      }
+    }
+  }
+}
+
+@media (min-width: PC, タブレット共通) {
+  main {
+    .main {
+      .flash-window  {
+        // 大画面の時は窓の横幅は固定
+        width: 500px;
+      }
+    }
+  }
+}
+@media (min-width: スマホ) {
+  main {
+    .main {
+      .flash-window  {
+        // 小画面の時は画面サイズの90%で可変
+        width: 90%;
+        p {
+          font-size: 4vw;
+        }
+      }
+    }
+  }
+}
